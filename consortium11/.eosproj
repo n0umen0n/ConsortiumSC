@@ -1,0 +1,21 @@
+{
+  "main": "src/consortium11.cpp",
+  "contract": "consortium11",
+  "include": "",
+  "resource": "",
+  "cdt": "v1.7.0",
+  "output": "",
+  "scripts": {
+    "build": ""
+  },
+  "deploy": {
+    "target": "both",
+    "mainnet": "",
+    "kylin": "consortium11",
+    "jungle": "",
+    "local": ""
+  },
+  "test": {
+    "npmClient": ""
+  }
+}
