@@ -2,7 +2,10 @@
 #include <eosio/eosio.hpp>
 #include <eosio/asset.hpp>
 #include <eosio/contract.hpp>
+#include <eosio/time.hpp>
+#include <eosio/system.hpp>
 #include <cmath>
+
 
 
 using namespace std;
@@ -44,15 +47,45 @@ class [[eosio::contract("consortium11")]] consortium11 : public eosio::contract 
              
              
              
-             
+[[eosio::action]]
+void createtime (name creator) { 
+
+require_auth (name("consortiumtt"));
+
+  timer ajatabel(get_self(), creator.value);
+  auto litsjah = ajatabel.find (creator.value);
+
+
+  const time_point_sec timeinit = current_time_point() + seconds(3150000);
+  const time_point_sec timeprolong = current_time_point() + seconds(1728000);
+
+  if ( litsjah == ajatabel.end() ) {
+
+
+ajatabel.emplace( name("consortium11"), [&]( auto& r ){
+
+      r.creator = creator;
+      r.time_limit = timeinit;
+   });
+
+}
+
+ else { 
+
+ajatabel.modify (litsjah ,name("consortium11"), [&](auto &r){
+              r.creator =creator;
+              r.time_limit = timeprolong;
+                });
+                }
+                }  
+
              
              
              
              
   [[eosio::on_notify("krowndactokn::transfer")]]
-  //[[eosio::on_notify("defintoken11::transfer")]]
   
-  void reversetransactionlita (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionlita (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -86,7 +119,7 @@ if (from == get_self() || to != get_self()){
   
   
   
-  void reversetransactionprosp (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionprosp (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -109,34 +142,6 @@ if (from == get_self() || to != get_self()){
   
   
   
-  
-  /*
-  [[eosio::on_notify("karmatoken11::transfer")]]
-  
-  
-  
-  void reversetransactionkarma (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
-
-if (from == get_self() || to != get_self()){
-    return;
-  }
- 
-  send_back_karma(to, from, quantity, memo);
-  
-  const int64_t paydeterminant = 3;
-
-  const struct asset jagaja = {int64_t (1), symbol ("GARMA", 4)};  
-
-  const  struct asset kordaja = {int64_t (100), symbol ("GARMA", 4)};  
-  
-  check(quantity.symbol == currency_symbol_karma, "Not the right token bljat");
-  
-  
-  votingrecording (from,  to, quantity, memo, paydeterminant, jagaja, kordaja  );
-  
-  }
-  */
-
 
 
 
@@ -145,7 +150,7 @@ if (from == get_self() || to != get_self()){
   
   
   
-  void reversetransactiondice (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactiondice (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -174,7 +179,7 @@ if (from == get_self() || to != get_self()){
   
   
   
-  void reversetransactionlumeos (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionlumeos (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -204,7 +209,7 @@ if (from == get_self() || to != get_self()){
   
   
   
-  void reversetransactionliquidapps (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionliquidapps (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -232,7 +237,7 @@ if (from == get_self() || to != get_self()){
   
   
   
-  void reversetransactionpixeos (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionpixeos (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -260,7 +265,7 @@ if (from == get_self() || to != get_self()){
     [[eosio::on_notify("effecttokens::transfer")]]
 
   
-  void reversetransactioneffectai (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactioneffectai (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -288,7 +293,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("everipediaiq::transfer")]]
 
   
-  void reversetransactioneveripedia (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactioneveripedia (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -316,7 +321,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("emanateoneos::transfer")]]
 
   
-  void reversetransactionemanate (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionemanate (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -341,7 +346,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("bgbgbgbgbgbg::transfer")]]
 
   
-  void reversetransactionbiggame (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionbiggame (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -367,7 +372,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("boidcomtoken::transfer")]]
 
   
-  void reversetransactiondefind (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactiondefind (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -393,7 +398,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("hirevibeshvt::transfer")]]
 
   
-  void reversetransactionhirevibes (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionhirevibes (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -419,7 +424,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("eosiotptoken::transfer")]]
 
   
-  void reversetransactiontpt (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactiontpt (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -445,7 +450,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("eosdtsttoken::transfer")]]
 
   
-  void reversetransactioneosdt (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactioneosdt (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -474,7 +479,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("bntbntbntbnt::transfer")]]
 
   
-  void reversetransactionbancor (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionbancor (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -500,7 +505,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("vig111111111::transfer")]]
 
   
-  void reversetransactionvigor (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionvigor (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -527,7 +532,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("eosdactokens::transfer")]]
 
   
-  void reversetransactioneosdac (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactioneosdac (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -554,7 +559,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("ednazztokens::transfer")]]
 
   
-  void reversetransactionedna (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionedna (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -579,7 +584,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("sensegenesis::transfer")]]
 
   
-  void reversetransactionsense (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionsense (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -605,7 +610,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("thepeostoken::transfer")]]
 
   
-  void reversetransactionpeos (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionpeos (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -631,7 +636,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("newdexissuer::transfer")]]
 
   
-  void reversetransactionnewdex (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionnewdex (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -659,7 +664,7 @@ if (from == get_self() || to != get_self()){
   [[eosio::on_notify("chexchexchex::transfer")]]
 
   
-  void reversetransactionchintai (name from, name to, asset quantity, std::string memo){  //siia t2psustada et reverse trans consortium.
+  void reversetransactionchintai (name from, name to, asset quantity, std::string memo){  
 
 if (from == get_self() || to != get_self()){
     return;
@@ -713,6 +718,16 @@ if (from == get_self() || to != get_self()){
  
  void votingrecording( name from, name to, asset quantity, std::string memo,int64_t paydeterminant, asset jagaja, asset kordaja  ) {
    
+
+const name creator = name("consortiumtt");
+
+timer tra(get_self(), creator.value);
+const auto& st = tra.get(creator.value, "jobi");
+
+
+check( st.time_limit > current_time_point(), "Genesis vote over" );
+
+
    
    const struct asset productPrice = {int64_t (0), symbol ("GOVRN", 4)};
   
@@ -747,7 +762,7 @@ if (from == get_self() || to != get_self()){
     
 
 
-if( litsjah != signalledyes.end() && (litsei != signalledno.end() || litsei == signalledno.end())  ){ //nelivalikut vist kokku!!!!!!!! litsjah != signalledyes.end() && //////&& litsei != signalledno.end() || litsei == signalledno.end()
+if( litsjah != signalledyes.end() && (litsei != signalledno.end() || litsei == signalledno.end())  ){ 
     
 
    const auto& iterator = signalledyes.get( quantity.symbol.code().raw(), "k2ivittu" );
@@ -816,7 +831,7 @@ if( litsjah != signalledyes.end() && (litsei != signalledno.end() || litsei == s
   
 
       
-if( litsei != signalledno.end() && (litsjah != signalledyes.end() || litsjah == signalledyes.end())){ //nelivalikut vist kokku!!!!!!!! litsjah != signalledyes.end() &&  /////// && litsjah != signalledyes.end() || litsjah == signalledyes.end() 
+if( litsei != signalledno.end() && (litsjah != signalledyes.end() || litsjah == signalledyes.end())){  
     
   
        
@@ -927,6 +942,14 @@ if( litsei != signalledno.end() && (litsjah != signalledyes.end() || litsjah == 
 
   };
   
+  TABLE timetable {
+
+               name creator;
+               time_point_sec time_limit;
+               
+              uint64_t  primary_key()const { return creator.value; }
+
+      };
   
   
   
@@ -1189,13 +1212,17 @@ void send_back_newdex(name from, name to, asset quantity, std::string memo) {
   };
   
 
-    typedef eosio::multi_index<name("voteyes"), user_voted_yes> useryes; //
+    typedef eosio::multi_index<name("voteyes"), user_voted_yes> useryes; 
     
 
     typedef eosio::multi_index<name("totalvotes"), totall_voted> totall;
     
     
-    typedef eosio::multi_index<name("voteno"), user_voted_no> userno; //
+    typedef eosio::multi_index<name("voteno"), user_voted_no> userno; 
+
+
+    typedef eosio::multi_index<name("time"), timetable>timer;
+
 
 
 
