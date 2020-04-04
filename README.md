@@ -1,4 +1,4 @@
-<h1> <img src="https://user-images.githubusercontent.com/46645013/78460735-fb03f280-76cb-11ea-9c1e-eb86c1511462.png" width="47" height="30"> Consortium - decentralized, on-chain, incentive based governance layer for any social organization.  </h1>
+<h1> <img src="https://user-images.githubusercontent.com/46645013/78460735-fb03f280-76cb-11ea-9c1e-eb86c1511462.png" width="55" height="35"> Consortium - decentralized, on-chain, incentive based governance layer for any social organization.  </h1>
 
 
 Welcome to the Consortium's smart contracts repository! 
