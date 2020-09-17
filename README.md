@@ -22,4 +22,12 @@ Contract consortiumlv could be categorized into three parts that contain:
 
 
 In addition contract is integrated with DAPP network (LiquidApps services). Two LiquidApps services are being utilized, cron and oracle. Cron is used to calculate and distribute the rewards (GOVRN) to creators of the popular polls and to delete four different table rows (TABLE paljuvoted / TABLE kysimused / TABLE usrpoll / TABLE voterstatzi) that are no longer in use to release RAM. 
+<hr></hr>
+ 
+ <h3>Contract - consortiumtt / consortium11 </h3> 
+ 
+ Contract consortiumtt and consortium11 were in use in the first phase and are no longer in use. 
+ 
+ 
+ 
 
