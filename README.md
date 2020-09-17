@@ -26,7 +26,7 @@ In addition contract is integrated with DAPP network (LiquidApps services). Two 
  
  <h3>Contract - consortiumtt / consortium11 </h3> 
  
- Contract consortiumtt and consortium11 were in use in the first phase and are no longer in use. 
+ Contract consortiumtt and consortium11 were in use in the first phase of Consortium dApp and are no longer in use. 
  
  
  
